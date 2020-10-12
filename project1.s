@@ -13,7 +13,9 @@
           Loop:
                la $a1, userInput
                addu $a1, $a1, $s2
-               lbu $a0,($a1)
+               lbu $s4,($a1)
+               addi $s2, $s2, 1
+               bne $s2, $s3, Loop
 
           
 
