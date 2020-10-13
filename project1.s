@@ -38,6 +38,10 @@
           LowercaseHandler:
                 slt $t1, $s6, $s4
                 beq $t1, $t2, AnythingElseHandler
+                slt $t1, $s6, $s5
+                beq $t1, $zero, AnythingElseHandler
+                addi $s6, $s6, -87
+                add $t0, $t0, $s6
                 j Return_here
 
           AnythingElseHandler:
