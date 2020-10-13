@@ -12,7 +12,9 @@
           add $s0, $zero, $zero            #The Value that will be incremented
           addi $s1, $zero, 10              #Closing condition for loop
           add $t0, $zero, $zero            #Initializing Output Value Register
-          
+          addi $t2, $zero, 1               #Register with Value 1 for Comparison
+          addi $s2, $zero, 65              #Lower limit of UppercaseHandler
+          addi $s3, $zero, 86              #Upper limit of UppercaseHandler
 
           Loop:
                lb $s6, userInput($s0)
@@ -23,6 +25,8 @@
           1to9Handler:
           
           UppercaseHandler:
+                slt $t1, $s6, $s2
+                beq $t1, $t2, AnythingElseHandler
           
           LowercaseHandler:
 
