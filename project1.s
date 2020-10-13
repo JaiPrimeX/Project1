@@ -17,16 +17,21 @@
           addi $s3, $zero, 86              #Upper limit of UppercaseHandler
 
           Loop:
-               lb $s6, userInput($s0)
+                lb $s6, userInput($s0)
           Return_here:   
-               addi $s0, $s0, 1
-               bne $s0, $s1, Loop
-               j Exit
+                addi $s0, $s0, 1
+                bne $s0, $s1, Loop
+                j Exit
           1to9Handler:
           
           UppercaseHandler:
                 slt $t1, $s6, $s2
                 beq $t1, $t2, AnythingElseHandler
+                slt $t1, $s6, $s3
+                beq $t1, $zero, LowercaseHandler
+                addi $s6, $s6, -55
+                add $t0, $t0, $s6
+                j Return_here
           
           LowercaseHandler:
 
