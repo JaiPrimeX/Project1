@@ -1,14 +1,8 @@
 .data
-      inputMessage:  .asciiz "Input: "
-      outputMessage: .asciiz "Output: "
       newLine:       .asciiz "\n"
       userInput:     .space  11 
 .text
      main:
-          #Displaying Input
-          la $a0, inputMessage
-          li $v0, 4
-          syscall
           #Getting user's input as text
           li $v0, 8
           la $a0, userInput
@@ -65,10 +59,6 @@
           AnythingElseHandler:
                 j Return_here
        Exit:
-          #Displaying Output
-          la $a0, outputMessage
-          li $v0, 4
-          syscall
           #Print out Output aka $t0
           move $a0, $t0
           li $v0, 1
