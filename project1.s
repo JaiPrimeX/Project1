@@ -1,5 +1,8 @@
 .data
-      userInput: .space  11 
+      inputMessage:  .asciiz "Input: "
+      outputMessage: .asciiz "Output: "
+      newLine:       .asciiz "\n"
+      userInput:     .space  11 
 .text
      main:
           #Getting user's input as text
