@@ -15,6 +15,8 @@
           addi $t2, $zero, 1               #Register with Value 1 for Comparison
           addi $s2, $zero, 65              #Lower limit of UppercaseHandler
           addi $s3, $zero, 86              #Upper limit of UppercaseHandler
+          addi $s4, $zero, 97              #Lower limit of LowercaseHandler
+          addi $s5, $zero, 118             #Upper limit of LowercaseHandler
 
           Loop:
                 lb $s6, userInput($s0)
@@ -34,6 +36,9 @@
                 j Return_here
           
           LowercaseHandler:
+                slt $t1, $s6, $s4
+                beq $t1, $t2, AnythingElseHandler
+                j Return_here
 
           AnythingElseHandler:
 
