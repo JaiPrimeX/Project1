@@ -63,8 +63,6 @@
                 add $t0, $t0, $s6
                 j Return_here
           AnythingElseHandler:
-                add $s6, $zero, $zero
-                add $t0, $t0, $s6
                 j Return_here
        Exit:
           #Displaying Output
