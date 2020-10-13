@@ -14,6 +14,10 @@
           la $a0, userInput
           li $a1, 11
           syscall
+          #Inserting NewLine Before Output Display
+          la $a0,newLine
+          li $v0,4
+          syscall
           
           #Initializing Values Before Loop
           add $s0, $zero, $zero            #The Value that will be incremented
@@ -63,6 +67,10 @@
                 add $t0, $t0, $s6
                 j Return_here
        Exit:
+          #Displaying Output
+          la $a0, outputMessage
+          li $v0, 4
+          syscall
           #Print out Output aka $t0
           move $a0, $t0
           li $v0, 1
