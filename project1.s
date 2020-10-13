@@ -18,16 +18,20 @@
           addi $s4, $zero, 97              #Lower limit of LowercaseHandler
           addi $s5, $zero, 118             #Upper limit of LowercaseHandler
           addi $s7, $zero, 58              #Upper limit of 1to9Handler
-          addi $t5, $zero, 48              #Lower limit of 1to9Handler
+          addi $t5, $zero, 49              #Lower limit of 1to9Handler
 
           Loop:
                 lb $s6, userInput($s0)
- 
+                slt $t1, $s6, $s7
+                beq $t1, $t2, 1to9Handler
+                j Label2
           Return_here:   
                 addi $s0, $s0, 1
                 bne $s0, $s1, Loop
                 j Exit
           1to9Handler:
+                slt $t1, $s6, $t5
+                beq $t1, $t2, AnythingElseHandler
           
           UppercaseHandler:
                 slt $t1, $s6, $s2
