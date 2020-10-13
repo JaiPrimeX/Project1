@@ -17,9 +17,12 @@
           addi $s3, $zero, 86              #Upper limit of UppercaseHandler
           addi $s4, $zero, 97              #Lower limit of LowercaseHandler
           addi $s5, $zero, 118             #Upper limit of LowercaseHandler
+          addi $s7, $zero, 58              #Upper limit of 1to9Handler
+          addi $t5, $zero, 48              #Lower limit of 1to9Handler
 
           Loop:
                 lb $s6, userInput($s0)
+ 
           Return_here:   
                 addi $s0, $s0, 1
                 bne $s0, $s1, Loop
@@ -45,7 +48,9 @@
                 j Return_here
 
           AnythingElseHandler:
-
+                add $s6, $zero, $zero
+                add $t0, $t0, $s6
+                j Return_here
        Exit:   
           #End of main
           li $v0, 10
