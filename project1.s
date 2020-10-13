@@ -32,7 +32,9 @@
           1to9Handler:
                 slt $t1, $s6, $t5
                 beq $t1, $t2, AnythingElseHandler
-          
+                addi $s6, $s6, -48
+                add $t0, $t0, $s6
+                j Return_here
           UppercaseHandler:
                 slt $t1, $s6, $s2
                 beq $t1, $t2, AnythingElseHandler
@@ -41,7 +43,6 @@
                 addi $s6, $s6, -55
                 add $t0, $t0, $s6
                 j Return_here
-          
           LowercaseHandler:
                 slt $t1, $s6, $s4
                 beq $t1, $t2, AnythingElseHandler
@@ -50,12 +51,15 @@
                 addi $s6, $s6, -87
                 add $t0, $t0, $s6
                 j Return_here
-
           AnythingElseHandler:
                 add $s6, $zero, $zero
                 add $t0, $t0, $s6
                 j Return_here
-       Exit:   
+       Exit:
+          #Print out Output aka $t0
+          move $a0, $t0
+          li $v0, 1
+          syscall   
           #End of main
           li $v0, 10
           syscall
