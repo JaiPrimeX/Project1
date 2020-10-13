@@ -31,3 +31,4 @@ M = 21
 Δ = 30
 
 # Range 1-9, A-U, a-u
+# Note: Prior to beginning code construction, a lot of logic was written out in pseudocode and testing was done outside of project1.s in order to familar myself with the commands.
