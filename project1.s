@@ -74,6 +74,10 @@
           #Print out Output aka $t0
           move $a0, $t0
           li $v0, 1
+          syscall
+          #Inserting NewLine After Output Display
+          la $a0,newLine
+          li $v0,4
           syscall   
           #End of main
           li $v0, 10
